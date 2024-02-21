@@ -1,0 +1,35 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 160px;
+    margin-right: 160px;
+   .mainLogo{
+    h1{
+
+        font-size: 64px;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+   }
+   .navLinks{
+    .links{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 500;
+        width:400px;
+        text-decoration: none;
+        list-style: none;
+        .link{
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+   }
+}
