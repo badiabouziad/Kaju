@@ -8,6 +8,7 @@ const Products = () => {
   const [minPrice, setMinPrice] = useState(""); // State to hold the minimum price
   const [maxPrice, setMaxPrice] = useState(""); // State to hold the maximum price
   const [selectedWilaya, setSelectedWilaya] = useState(""); // State to hold the selected wilaya
+  const [selectedType, setSelectedType] = useState(""); // State to hold the selected type
   const [filterApplied, setFilterApplied] = useState(false); // State to track if filter is applied
   const products = [
     {
@@ -193,6 +194,8 @@ const Products = () => {
   ];
 
 
+
+
   // Calculate the index range of products to display for the current page
   const startIndex = (currentPage - 1) * productsPerPage;
   const endIndex = Math.min(startIndex + productsPerPage, products.length);
@@ -209,18 +212,20 @@ const Products = () => {
     setMinPrice("");
     setMaxPrice("");
     setSelectedWilaya("");
+    setSelectedType("");
     setFilterApplied(false);
     setCurrentPage(1); // Reset to first page when filters are cleared
   };
 
-  // Filter products based on search query, price range, and selected wilaya
+  // Filter products based on search query, price range, selected wilaya, and selected type
   const filteredProducts = products.filter(
     (product) =>
       (!filterApplied || // Apply filters only if filter is applied
         (product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
           (minPrice === "" || product.price >= parseFloat(minPrice)) &&
           (maxPrice === "" || product.price <= parseFloat(maxPrice)) &&
-          (selectedWilaya === "" || product.wilaya === selectedWilaya)))
+          (selectedWilaya === "" || product.wilaya === selectedWilaya) &&
+          (selectedType === "" || product.type === selectedType)))
   );
 
   // Array of products to display for the current page
@@ -249,6 +254,11 @@ const Products = () => {
   // Function to handle wilaya change
   const handleWilayaChange = (event) => {
     setSelectedWilaya(event.target.value);
+  };
+
+  // Function to handle type change
+  const handleTypeChange = (event) => {
+    setSelectedType(event.target.value);
   };
 
   return (
@@ -289,6 +299,17 @@ const Products = () => {
             <option value="constantine">Constantine</option>
             <option value="alger">Alger</option>
             <option value="oran">Oran</option>
+          </select>
+        </div>
+        {/* Type filter select */}
+        <div className="typeFilter">
+          <label>Type :</label>
+          <select value={selectedType} onChange={handleTypeChange} className="selectType">
+            <option value="">All</option>
+            <option value="home appliances">Home Appliances</option>
+            <option value="car parts">Car Parts</option>
+            <option value="phones">Phones</option>
+            <option value="electronics">Electronics</option>
           </select>
         </div>
       </div>

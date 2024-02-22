@@ -56,6 +56,21 @@
       border: 1px solid black;
     }
   }
+  .typeFilter {
+      border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    label{
+        margin-right: 32px;
+    }
+    .selectType {
+      width: 180px;
+      font-family: poppins;
+      padding: 5px;
+      border: 1px solid black;
+    }
+  }
 }
 .filterButton {
   margin-left: 160px;
