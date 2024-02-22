@@ -12,17 +12,26 @@
   height: 200px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 .filters .priceFilter {
-  margin-left: 160px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .filters .priceFilter label {
   font-weight: 600;
   font-size: 17px;
+  margin-right: 32px;
 }
 .filters .priceFilter .minmaxText {
+  margin-right: 8px;
   font-weight: 300;
   margin-left: 10px;
   font-size: 15px;
@@ -31,6 +40,21 @@
   border: 1px solid black;
   font-family: poppins;
   padding: 5px;
+}
+.filters .wilayaFilter {
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filters .wilayaFilter label {
+  margin-right: 32px;
+}
+.filters .wilayaFilter .selectWilaya {
+  width: 180px;
+  font-family: poppins;
+  padding: 5px;
+  border: 1px solid black;
 }
 
 .filterButton {
@@ -78,8 +102,9 @@
 .productsContainer .product {
   cursor: pointer;
   border: 2px solid black;
-  height: 400px;
+  height: 500px;
   transition: 0.2s ease-in;
+  box-sizing: border-box;
 }
 .productsContainer .product img {
   width: 100%;
@@ -93,6 +118,11 @@
 }
 .productsContainer .product .seller {
   margin-left: 15px;
+}
+.productsContainer .product .wilaya {
+  margin-left: 15px;
+  color: rgb(72, 72, 72);
+  text-decoration: underline;
 }
 .productsContainer .product .price {
   text-align: right;

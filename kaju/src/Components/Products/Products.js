@@ -7,6 +7,7 @@ const Products = () => {
   const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
   const [minPrice, setMinPrice] = useState(""); // State to hold the minimum price
   const [maxPrice, setMaxPrice] = useState(""); // State to hold the maximum price
+  const [selectedWilaya, setSelectedWilaya] = useState(""); // State to hold the selected wilaya
   const [filterApplied, setFilterApplied] = useState(false); // State to track if filter is applied
   const products = [
     {
@@ -15,6 +16,8 @@ const Products = () => {
       seller: "seller of Product 1",
       price: 5500,
       image: "product1.jpg",
+      type: "home appliances",
+      wilaya: "jijel",
     },
     {
       id: 2,
@@ -22,6 +25,8 @@ const Products = () => {
       seller: "seller of Product 2",
       price: 34000,
       image: "product2.avif",
+      type: "car parts",
+      wilaya: "constantine",
     },
     {
       id: 3,
@@ -29,6 +34,8 @@ const Products = () => {
       seller: "seller of Product 3",
       price: 14500,
       image: "product3.webp",
+      type: "phones",
+      wilaya: "alger",
     },
     {
       id: 4,
@@ -36,6 +43,8 @@ const Products = () => {
       seller: "seller of Product 4",
       price: 52000,
       image: "product4.jpg",
+      type: "electronics",
+      wilaya: "oran",
     },
     {
       id: 5,
@@ -43,6 +52,8 @@ const Products = () => {
       seller: "seller of Product 5",
       price: 6200,
       image: "product5.jpg",
+      wilaya: "constantine",
+      type: "home appliances",
     },
     {
       id: 6,
@@ -50,6 +61,8 @@ const Products = () => {
       seller: "seller of Product 6",
       price: 41000,
       image: "product6.jpg",
+      wilaya: "jijel",
+      type: "home appliances",
     },
     {
       id: 7,
@@ -57,6 +70,8 @@ const Products = () => {
       seller: "seller of Product 7",
       price: 19800,
       image: "product7.png",
+      wilaya: "alger",
+      type: "home appliances",
     },
     {
       id: 8,
@@ -64,6 +79,8 @@ const Products = () => {
       seller: "seller of Product 8",
       price: 14500,
       image: "product8.webp",
+      wilaya: "jijel",
+      type: "home appliances",
     },
     {
       id: 9,
@@ -71,6 +88,8 @@ const Products = () => {
       seller: "seller of Product 9",
       price: 3800,
       image: "product1.jpg",
+      wilaya: "jijel",
+      type: "car parts",
     },
     {
       id: 10,
@@ -78,13 +97,17 @@ const Products = () => {
       seller: "seller of Product 10",
       price: 45000,
       image: "product1.jpg",
+      wilaya: "alger",
+      type: "car parts",
     },
     {
       id: 11,
       name: "Leather Wallet",
       seller: "seller of Product 11",
-      price:28000,
+      price: 28000,
       image: "product1.jpg",
+      wilaya: "constantine",
+      type: "car parts",
     },
     {
       id: 12,
@@ -92,6 +115,8 @@ const Products = () => {
       seller: "seller of Product 12",
       price: 17000,
       image: "product1.jpg",
+      wilaya: "jijel",
+      type: "car parts",
     },
     {
       id: 13,
@@ -99,6 +124,8 @@ const Products = () => {
       seller: "seller of Product 13",
       price: 2800,
       image: "product1.jpg",
+      wilaya: "oran",
+      type: "phones",
     },
     {
       id: 14,
@@ -106,6 +133,8 @@ const Products = () => {
       seller: "seller of Product 14",
       price: 9000,
       image: "product1.jpg",
+      wilaya: "constantine",
+      type: "phones",
     },
     {
       id: 15,
@@ -113,6 +142,8 @@ const Products = () => {
       seller: "seller of Product 15",
       price: 32000,
       image: "product1.jpg",
+      wilaya: "oran",
+      type: "phones",
     },
     {
       id: 16,
@@ -120,6 +151,8 @@ const Products = () => {
       seller: "seller of Product 16",
       price: 10500,
       image: "product1.jpg",
+      wilaya: "constantine",
+      type: "phones",
     },
     {
       id: 17,
@@ -127,6 +160,8 @@ const Products = () => {
       seller: "seller of Product 17",
       price: 6900,
       image: "product2.avif",
+      wilaya: "alger",
+      type: "electronics",
     },
     {
       id: 18,
@@ -134,6 +169,8 @@ const Products = () => {
       seller: "seller of Product 18",
       price: 8500,
       image: "product2.avif",
+      wilaya: "oran",
+      type: "electronics",
     },
     {
       id: 19,
@@ -141,6 +178,8 @@ const Products = () => {
       seller: "seller of Product 19",
       price: 15000,
       image: "product2.avif",
+      wilaya: "alger",
+      type: "electronics",
     },
     {
       id: 20,
@@ -148,12 +187,12 @@ const Products = () => {
       seller: "seller of Product 20",
       price: 1000,
       image: "product2.avif",
+      wilaya: "jijel",
+      type: "electronics",
     },
   ];
-// Function to generate a random price between min and max
-function getRandomPrice(min, max) {
-  return (Math.random() * (max - min) + min).toFixed(2);
-}
+
+
   // Calculate the index range of products to display for the current page
   const startIndex = (currentPage - 1) * productsPerPage;
   const endIndex = Math.min(startIndex + productsPerPage, products.length);
@@ -169,17 +208,19 @@ function getRandomPrice(min, max) {
     setSearchQuery("");
     setMinPrice("");
     setMaxPrice("");
+    setSelectedWilaya("");
     setFilterApplied(false);
     setCurrentPage(1); // Reset to first page when filters are cleared
   };
 
-  // Filter products based on search query and price range
+  // Filter products based on search query, price range, and selected wilaya
   const filteredProducts = products.filter(
     (product) =>
-      !filterApplied || // Apply filters only if filter is applied
-      (product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-        (minPrice === "" || product.price >= parseFloat(minPrice)) &&
-        (maxPrice === "" || product.price <= parseFloat(maxPrice)))
+      (!filterApplied || // Apply filters only if filter is applied
+        (product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+          (minPrice === "" || product.price >= parseFloat(minPrice)) &&
+          (maxPrice === "" || product.price <= parseFloat(maxPrice)) &&
+          (selectedWilaya === "" || product.wilaya === selectedWilaya)))
   );
 
   // Array of products to display for the current page
@@ -203,6 +244,11 @@ function getRandomPrice(min, max) {
   // Function to handle maximum price change
   const handleMaxPriceChange = (event) => {
     setMaxPrice(event.target.value);
+  };
+
+  // Function to handle wilaya change
+  const handleWilayaChange = (event) => {
+    setSelectedWilaya(event.target.value);
   };
 
   return (
@@ -234,6 +280,17 @@ function getRandomPrice(min, max) {
             onChange={handleMaxPriceChange}
           />
         </div>
+        {/* Wilaya filter select */}
+        <div className="wilayaFilter">
+          <label>Wilaya :</label>
+          <select value={selectedWilaya} onChange={handleWilayaChange} className="selectWilaya">
+            <option value="">All</option>
+            <option value="jijel">Jijel</option>
+            <option value="constantine">Constantine</option>
+            <option value="alger">Alger</option>
+            <option value="oran">Oran</option>
+          </select>
+        </div>
       </div>
       {/* Filter button */}
       <button className="filterButton" onClick={applyFilters}>
@@ -249,6 +306,7 @@ function getRandomPrice(min, max) {
             <img src={`../../../Images/${product.image}`} alt={product.name} />
             <h2>{product.name}</h2>
             <p className="seller">{product.seller}</p>
+            <p className="wilaya">{product.wilaya}</p>
             <p className="price">Price: ${product.price}</p>
           </div>
         ))}

@@ -1,83 +1,107 @@
-.searchInput{
-    margin-top: 80px;
-    margin-left: 160px;
-    border: 2px solid black;
-    font-family: poppins;
-    margin-bottom: 32px;
-    padding: 8px;
+.searchInput {
+  margin-top: 80px;
+  margin-left: 160px;
+  border: 2px solid black;
+  font-family: poppins;
+  margin-bottom: 32px;
+  padding: 8px;
 }
-.filters{
-    width: 100%;
-    height: 200px;
-    border-top: 1px solid black;
+.filters {
+  width: 100%;
+  height: 200px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  .priceFilter {
+    
+    border-right: 1px solid black;
     border-bottom: 1px solid black;
     display: flex;
     align-items: center;
-    .priceFilter{
-        
-        margin-left: 160px;
-        label{
-            font-weight: 600;
-            font-size: 17px;
-        }
-        .minmaxText{
-            font-weight: 300;
-            margin-left: 10px;
-            font-size: 15px;
-        }
-        input{
-            border: 1px solid black;
-            font-family: poppins;
-            padding: 5px;
-        }
+    justify-content: center;
+    label {
+      font-weight: 600;
+      font-size: 17px;
+      margin-right: 32px;
     }
+    .minmaxText {
+        margin-right: 8px;
+      font-weight: 300;
+      margin-left: 10px;
+      font-size: 15px;
+    }
+    input {
+      border: 1px solid black;
+      font-family: poppins;
+      padding: 5px;
+    }
+  }
+  .wilayaFilter {
+      border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    label{
+        margin-right: 32px;
+    }
+    .selectWilaya {
+      width: 180px;
+      font-family: poppins;
+      padding: 5px;
+      border: 1px solid black;
+    }
+  }
 }
-.filterButton{
-    margin-left: 160px;
-    margin-top: 32px;
-    width: 120px;
-    height: 40px;
-    background-color: white;
-    font-family: poppins;
-    font-size: 17px;
-    cursor: pointer;
-    &:hover {
-        box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-        -webkit-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-        -moz-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-        background-color: rgb(225, 225, 225);
-      }
-    
+.filterButton {
+  margin-left: 160px;
+  margin-top: 32px;
+  width: 120px;
+  height: 40px;
+  background-color: white;
+  font-family: poppins;
+  font-size: 17px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+    background-color: rgb(225, 225, 225);
+  }
 }
-.clearFilterButton{
-    margin-left: 32px;
-    margin-top: 32px;
-    width: 120px;
-    height: 40px;
-    background-color: white;
-    font-family: poppins;
-    font-size: 17px;
-    cursor: pointer;
-    &:hover {
-        box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-        -webkit-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-        -moz-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-        background-color: rgb(225, 225, 225);
-      }
-    
+.clearFilterButton {
+  margin-left: 32px;
+  margin-top: 32px;
+  width: 120px;
+  height: 40px;
+  background-color: white;
+  font-family: poppins;
+  font-size: 17px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+    background-color: rgb(225, 225, 225);
+  }
 }
 .productsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-    margin-top: 32px;
+  margin-top: 32px;
   margin-left: 160px;
   margin-right: 160px;
   .product {
     cursor: pointer;
     border: 2px solid black;
-    height: 400px;
+    height: 500px;
     transition: 0.2s ease-in;
+    box-sizing: border-box;
     img {
       width: 100%;
       height: 60%;
@@ -91,6 +115,12 @@
     .seller {
       margin-left: 15px;
     }
+    .wilaya {
+      margin-left: 15px;
+      color: rgb(72, 72, 72);
+      text-decoration: underline;
+    }
+
     .price {
       text-align: right;
       margin-right: 15px;
@@ -102,13 +132,13 @@
     }
   }
 }
-.pagination{
-text-align: center;
-margin: auto;
-margin-bottom: 80px;
-margin-top: 80px;
+.pagination {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 80px;
+  margin-top: 80px;
 
-.paginationButtons{
+  .paginationButtons {
     cursor: pointer;
     width: 45px;
     height: 45px;
@@ -116,11 +146,9 @@ margin-top: 80px;
     background: #fff;
     font-family: poppins;
     &:hover {
-        box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-        -webkit-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-        -moz-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
-      }
-
-}
-
+      box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+      -webkit-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+      -moz-box-shadow: 2px 3px 0px -1px rgba(0, 0, 0, 1);
+    }
+  }
 }
