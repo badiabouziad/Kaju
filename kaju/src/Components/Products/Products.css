@@ -56,21 +56,6 @@
   padding: 5px;
   border: 1px solid black;
 }
-.filters .typeFilter {
-  border-right: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.filters .typeFilter label {
-  margin-right: 32px;
-}
-.filters .typeFilter .selectType {
-  width: 180px;
-  font-family: poppins;
-  padding: 5px;
-  border: 1px solid black;
-}
 
 .filterButton {
   margin-left: 160px;
