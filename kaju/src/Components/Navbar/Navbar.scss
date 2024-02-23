@@ -6,7 +6,7 @@
     margin-right: 160px;
    .mainLogo{
     h1{
-
+        cursor: pointer;
         font-size: 64px;
         cursor: pointer;
         &:hover{
@@ -17,6 +17,7 @@
    }
    .navLinks{
     .links{
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: space-between;

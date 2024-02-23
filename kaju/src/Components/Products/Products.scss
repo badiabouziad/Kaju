@@ -36,12 +36,14 @@
       font-size: 15px;
     }
     input {
+      cursor: pointer;
       border: 1px solid black;
       font-family: poppins;
       padding: 5px;
     }
   }
   .wilayaFilter {
+    
       border-bottom: 1px solid black;
     display: flex;
     align-items: center;
@@ -50,12 +52,14 @@
         margin-right: 32px;
     }
     .selectWilaya {
+      cursor: pointer;
       width: 180px;
       font-family: poppins;
       padding: 5px;
       border: 1px solid black;
     }
   }
+<<<<<<< HEAD
   .typeFilter {
       border-right: 1px solid black;
     display: flex;
@@ -65,12 +69,15 @@
         margin-right: 32px;
     }
     .selectType {
+      cursor: pointer;
       width: 180px;
       font-family: poppins;
       padding: 5px;
       border: 1px solid black;
     }
   }
+=======
+>>>>>>> 5fabcf29fc1291ea56d7bee5600971f61b3ddd74
 }
 .filterButton {
   margin-left: 160px;

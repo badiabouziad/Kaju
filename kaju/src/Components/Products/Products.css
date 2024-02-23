@@ -37,6 +37,7 @@
   font-size: 15px;
 }
 .filters .priceFilter input {
+  cursor: pointer;
   border: 1px solid black;
   font-family: poppins;
   padding: 5px;
@@ -51,11 +52,13 @@
   margin-right: 32px;
 }
 .filters .wilayaFilter .selectWilaya {
+  cursor: pointer;
   width: 180px;
   font-family: poppins;
   padding: 5px;
   border: 1px solid black;
 }
+<<<<<<< HEAD
 .filters .typeFilter {
   border-right: 1px solid black;
   display: flex;
@@ -66,11 +69,14 @@
   margin-right: 32px;
 }
 .filters .typeFilter .selectType {
+  cursor: pointer;
   width: 180px;
   font-family: poppins;
   padding: 5px;
   border: 1px solid black;
 }
+=======
+>>>>>>> 5fabcf29fc1291ea56d7bee5600971f61b3ddd74
 
 .filterButton {
   margin-left: 160px;

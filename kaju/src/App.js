@@ -1,12 +1,20 @@
-import './App.css'
+import React from 'react';
+
+import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import Products from './Components/Products/Products';
+
+
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Products />
-    </div>
+ 
+      <div className="App">
+        <Navbar />
+      
+      <Products/>
+         
+      </div>
+  
   );
 }
 
