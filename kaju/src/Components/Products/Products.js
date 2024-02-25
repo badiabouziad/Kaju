@@ -327,7 +327,6 @@ const Products = () => {
             <h2>{product.name}</h2>
             <p className="seller">{product.seller}</p>
             <p className="wilaya">{product.wilaya}</p>
-            <p className="type">{product.type}</p>
             <p className="price">Price: ${product.price}</p>
           </div>
         ))}
